@@ -623,7 +623,10 @@ mod declarative_provider_tests {
     #[test]
     fn test_claude_model_override_matching() {
         let mut headers = HashMap::new();
-        headers.insert("anthropic-beta".to_string(), "max-tokens-3-5-sonnet-2024-07-15".to_string());
+        headers.insert(
+            "anthropic-beta".to_string(),
+            "max-tokens-3-5-sonnet-2024-07-15".to_string(),
+        );
 
         let config = DeclarativeProviderConfig {
             name: "test_anthropic".to_string(),
@@ -660,7 +663,11 @@ mod declarative_provider_tests {
         assert_eq!(override_config.context_limit, Some(1_000_000));
         assert!(override_config.headers.is_some());
         assert_eq!(
-            override_config.headers.as_ref().unwrap().get("anthropic-beta"),
+            override_config
+                .headers
+                .as_ref()
+                .unwrap()
+                .get("anthropic-beta"),
             Some(&"max-tokens-3-5-sonnet-2024-07-15".to_string())
         );
 

@@ -404,5 +404,4 @@ mod tests {
         let no_override = config.get_model_override("gpt-4o");
         assert!(no_override.is_none());
     }
-
 }
